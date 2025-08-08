@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Thelma Guadalupe Díaz Martín</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: underline;
+            text-decoration-color: var(--accent-color);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+            font-size: 1em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item strong {
+            color: var(--primary-color);
+            min-width: 80px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 2px solid var(--accent-color);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .personal-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            padding: 5px 0;
+        }
+
+        .info-item strong {
+            color: var(--primary-color);
+            display: inline-block;
+            min-width: 120px;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: var(--bg-light);
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .education-item h4, .experience-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .education-item .institution {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 3px;
+        }
+
+        .education-item .years {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        .experience-list {
+            list-style: none;
+        }
+
+        .experience-list li {
+            margin-bottom: 12px;
+            padding: 10px;
+            background: var(--white);
+            border-radius: 3px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .experience-year {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .experience-description {
+            margin-top: 5px;
+            color: var(--secondary-color);
+        }
+
+        .interests-section {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .interests-section p {
+            margin-bottom: 10px;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        .courses-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .courses-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .courses-list li:last-child {
+            border-bottom: none;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .print-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .personal-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            @page {
+                margin: 0.5in;
+                size: letter;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            .container {
+                max-width: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
+                margin: 0;
+            }
+
+            .print-btn {
+                display: none;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+
+            .section-title {
+                font-size: 1.2em;
+                margin-bottom: 10px;
+                padding: 8px 0;
+                page-break-after: avoid;
+            }
+
+            .education-item, .experience-item {
+                page-break-inside: avoid;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            .header {
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+                margin-bottom: 8px;
+            }
+
+            .contact-info {
+                font-size: 0.9em;
+                gap: 5px;
+                margin-top: 15px;
+            }
+
+            .personal-info {
+                gap: 5px;
+            }
+
+            .info-item {
+                padding: 2px 0;
+            }
+
+            .experience-list li {
+                margin-bottom: 8px;
+                padding: 8px;
+            }
+
+            .interests-section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Curriculum Vitae</h1>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Nombre:</strong> Thelma Guadalupe Díaz Martín
+                </div>
+                <div class="contact-item">
+                    <strong>Dirección:</strong> Calle 5 # 115ª Colonia Bellavista
+                </div>
+                <div class="contact-item">
+                    <strong>Teléfono:</strong> Personal: (044) 981 175 53 74
+                </div>
+                <div class="contact-item">
+                    <strong>Email:</strong> acua_190@hotmail.com
+                </div>
+            </div>
+        </header>
+
+        <!-- Información Personal -->
+        <section class="section">
+            <h2 class="section-title">Información Personal</h2>
+            <div class="personal-info">
+                <div class="info-item">
+                    <strong>CURP:</strong> DIMT830129MCCZRH00
+                </div>
+                <div class="info-item">
+                    <strong>RFC:</strong> DIMT8301299Y5
+                </div>
+                <div class="info-item">
+                    <strong>Lugar de nacimiento:</strong> Campeche, Camp.
+                </div>
+                <div class="info-item">
+                    <strong>Fecha de nacimiento:</strong> 29 Enero 1983
+                </div>
+                <div class="info-item">
+                    <strong>Nacionalidad:</strong> Mexicana
+                </div>
+                <div class="info-item">
+                    <strong>Estado civil:</strong> Soltera
+                </div>
+                <div class="info-item">
+                    <strong>Edad:</strong> 40 años
+                </div>
+                <div class="info-item">
+                    <strong>Sexo:</strong> Femenino
+                </div>
+            </div>
+        </section>
+
+        <!-- Educación -->
+        <section class="section">
+            <h2 class="section-title">Educación</h2>
+            
+            <div class="education-item">
+                <h4>Preescolar</h4>
+                <div class="institution">Jardín de niños Ana María Farías</div>
+                <div class="years">(1987 - 1990)</div>
+            </div>
+
+            <div class="education-item">
+                <h4>Primaria</h4>
+                <div class="institution">Esc. primaria Lázaro Cárdenas del Río</div>
+                <div class="years">(1990 - 1996)</div>
+            </div>
+
+            <div class="education-item">
+                <h4>Secundaria</h4>
+                <div class="institution">Esc. Secundaria Técnica Número 17</div>
+                <div class="years">(1996 - 1998)</div>
+            </div>
+
+            <div class="education-item">
+                <h4>Preparatoria</h4>
+                <div class="institution">Esc. Preparatoria BENJAMÍN ROMERO ESQUIVEL</div>
+                <div class="years">(1999 - 2002)</div>
+            </div>
+
+            <div class="education-item">
+                <h4>Carrera Técnica Oficial en Puericultura</h4>
+                <div class="institution">"PUERICULTURA DEL SURESTE", DR. MANUEL ACEVEDO RUIZ DEL HOYO, CAMPUS CAMPECHE</div>
+                <div class="years">(2002 - 2005)</div>
+            </div>
+
+            <div class="education-item">
+                <h4>Licenciatura</h4>
+                <div class="institution">Universidad Pedagógica Nacional (UPN)</div>
+                <div class="years">4 años (2008 - 2011)</div>
+                <div class="experience-description">"CARTA DE PASANTE, LICENCIATURA EN EDUCACIÓN"</div>
+            </div>
+
+            <div class="education-item">
+                <h4>Segunda Licenciatura</h4>
+                <div class="institution">Derecho (UNID)</div>
+                <div class="experience-description">Título en trámite</div>
+            </div>
+        </section>
+
+        <!-- Experiencia y Servicio Social -->
+        <section class="section">
+            <h2 class="section-title">Experiencia y Servicio Social, Prácticas Profesionales</h2>
+            
+            <ul class="experience-list">
+                <li>
+                    <div class="experience-year">AÑO 2002</div>
+                    <div class="experience-description">Trabajo en "CAIC" CENTRO DE DESARROLLO INFANTIL COMUNITARIO</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">2002</div>
+                    <div class="experience-description">EL TESORO DEL SABER. TITULAR DE "MATERNAL"</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">2003</div>
+                    <div class="experience-description">EL TESORO DEL SABER. TITULAR DE PRIMERO DE PREESCOLAR</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">2005</div>
+                    <div class="experience-description">"COLIBRÍ" TITULAR DE SEGUNDO GRADO DE PREESCOLAR</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">2006</div>
+                    <div class="experience-description">"COLIBRÍ" TITULAR DE TERCER GRADO DE PREESCOLAR</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">2007</div>
+                    <div class="experience-description">"CRAYOLAS MÁGICAS" SEGUNDO GRADO DE PREESCOLAR</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">AÑO 2008 - 2010</div>
+                    <div class="experience-description">En la estancia Infantil "GAJITOS DE TERNURA", PROGRAMA DE SEDESOL, EN LA CIUDAD DE SAN FRANCISCO DE CAMPECHE. TENIENDO LA FUNCIÓN DE SUBDIRECTORA</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">AÑO 2010 - 2011</div>
+                    <div class="experience-description">Promotora como apoyo de lecto-escritura y Matemáticas a personas "GUADALUPE VICTORIA"</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">AÑO 2010</div>
+                    <div class="experience-description">EN LA ESCUELA DE "PUERICULTURA DEL SURESTE", DR. MANUEL ACEVEDO RUIZ DEL HOYO, CAMPUS CAMPECHE. DESEMPEÑANDO EL PAPEL DE SUPLENCIAS, EN EL ÁREA DE BACHILLERATO Y EN LOS CURSOS DE CAPACITACIÓN LABORAL</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">AÑO 2011 - 2012</div>
+                    <div class="experience-description">De psicomotricidad gruesa y fina (ejercicios a niños de preescolar 2 años a 5 años)</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">AÑO 2012</div>
+                    <div class="experience-description">EN LA ESCUELA En el colegio "GUADALUPE VICTORIA" desempeñando el papel de asistente en preescolar de ADAPTACIÓN (niños de 2 - 3 años)</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">AÑO 2013</div>
+                    <div class="experience-description">EN LA ESCUELA En el colegio "GUADALUPE VICTORIA" desempeñando el papel de asistente de preescolar de primero de kínder</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">AÑO 2014</div>
+                    <div class="experience-description">EN EL COLEGIO "MIGUEL HIDALGO" He realizado suplencias, de primero a sexto grado de primaria y kínder primero a tercero</div>
+                </li>
+                
+                <li>
+                    <div class="experience-year">AÑO 2015 - 2017</div>
+                    <div class="experience-description">HACIENDO SUPLENCIAS EVENTUALES Y LICENCIAS EN LA ESCUELA PARTICULAR "MIGUEL HIDALGO"</div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Experiencia Adicional -->
+        <section class="section">
+            <h2 class="section-title">Experiencia Adicional</h2>
+            
+            <div class="experience-item">
+                <h4>OFICIAL DE MANTENIMIENTO</h4>
+                <div class="experience-description">Juzgado Primero de Distrito en el Estado de Campeche, Campeche.</div>
+            </div>
+            
+            <div class="experience-item">
+                <h4>ARCHIVO DEL JUZGADO PRIMERO DE DISTRITO</h4>
+            </div>
+        </section>
+
+        <!-- Constancias y Cursos -->
+        <section class="section">
+            <h2 class="section-title">Constancias de Competencias, Cursos Extras</h2>
+            
+            <ul class="courses-list">
+                <li>Cursos DE ESTIMULACIÓN TEMPRANA</li>
+                <li>LECTO ESCRITURA "1-3" de preescolar</li>
+            </ul>
+        </section>
+
+        <!-- Intereses -->
+        <section class="section">
+            <h2 class="section-title">Intereses</h2>
+            
+            <div class="interests-section">
+                <p><strong>Desempeñar las Actividades Afines a mi Profesión de manera acertada y Oportuna.</strong></p>
+                <p><strong>Alcanzar un nivel de vida digno para realizarme en todos los sentidos, tanto profesional como personalmente.</strong></p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Print Button -->
+    <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i>
+        <span>Imprimir CV</span>
+    </button>
+
+    <script>
+        // Efecto suave de carga
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.container').style.opacity = '0';
+            document.querySelector('.container').style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                document.querySelector('.container').style.transition = 'all 0.6s ease';
+                document.querySelector('.container').style.opacity = '1';
+                document.querySelector('.container').style.transform = 'translateY(0)';
+            }, 100);
+        });
+
+        // Función para copiar información de contacto al hacer clic
+        document.querySelectorAll('.contact-item').forEach(item => {
+            if (item.textContent.includes('Email:') || item.textContent.includes('Teléfono:')) {
+                item.style.cursor = 'pointer';
+                item.title = 'Clic para copiar';
+                
+                item.addEventListener('click', function() {
+                    const text = this.textContent.split(': ')[1];
+                    if (text) {
+                        navigator.clipboard.writeText(text).then(() => {
+                            // Mostrar feedback visual
+                            this.style.background = '#e8f5e8';
+                            setTimeout(() => {
+                                this.style.background = 'transparent';
+                            }, 1000);
+                        }).catch(() => {
+                            console.log('No se pudo copiar');
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
